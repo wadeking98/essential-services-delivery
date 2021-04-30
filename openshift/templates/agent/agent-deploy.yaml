@@ -10,7 +10,7 @@ objects:
   #     name: custom-${APP_NAME}-${NAME}${SUFFIX}-to-external-network
   #     labels:
   #       name: custom-${APP_NAME}-${NAME}${SUFFIX}-to-external-network
-  #       app: ${APP_NAME}${SUFFIX}
+  #       app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
   #       app-group: ${APP_GROUP}
   #       role: ${ROLE}
   #       env: ${TAG_NAME}
@@ -31,7 +31,7 @@ objects:
   #     name: custom-${APP_NAME}-${NAME}${SUFFIX}-policy
   #     labels:
   #       name: custom-${APP_NAME}-${NAME}${SUFFIX}-policy
-  #       app: ${APP_NAME}${SUFFIX}
+  #       app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
   #       app-group: ${APP_GROUP}
   #       role: ${ROLE}
   #       env: ${TAG_NAME}
@@ -59,7 +59,7 @@ objects:
       name: ${NAME}${SUFFIX}-allow-ingress
       labels:
         name: ${NAME}${SUFFIX}-allow-ingress
-        app: ${APP_NAME}${SUFFIX}
+        app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
         app-group: ${APP_GROUP}
         role: ${ROLE}
         env: ${TAG_NAME}
@@ -74,7 +74,7 @@ objects:
       podSelector:
         matchLabels:
           role: ${ROLE}
-          app: ${APP_NAME}${SUFFIX}
+          app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
           env: ${TAG_NAME}
       policyTypes:
         - Ingress
@@ -85,7 +85,7 @@ objects:
       name: ${NAME}${SUFFIX}
       labels:
         name: ${NAME}${SUFFIX}
-        app: ${APP_NAME}${SUFFIX}
+        app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
         app-group: ${APP_GROUP}
         role: ${ROLE}
         env: ${TAG_NAME}
@@ -97,7 +97,7 @@ objects:
             - podSelector:
                 matchLabels:
                   role: ${API_ROLE}
-                  app: ${APP_NAME}${SUFFIX}
+                  app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
                   env: ${TAG_NAME}
               namespaceSelector:
                 matchLabels:
@@ -109,7 +109,7 @@ objects:
       podSelector:
         matchLabels:
           role: ${ROLE}
-          app: ${APP_NAME}${SUFFIX}
+          app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
           env: ${TAG_NAME}
 
   - kind: Service
@@ -118,7 +118,7 @@ objects:
       name: ${NAME}${SUFFIX}
       labels:
         name: ${NAME}${SUFFIX}
-        app: ${APP_NAME}${SUFFIX}
+        app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
         app-group: ${APP_GROUP}
         role: ${ROLE}
         env: ${TAG_NAME}
@@ -141,7 +141,7 @@ objects:
       name: ${NAME}${SUFFIX}
       labels:
         name: ${NAME}${SUFFIX}
-        app: ${APP_NAME}${SUFFIX}
+        app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
         app-group: ${APP_GROUP}
         role: ${ROLE}
         env: ${TAG_NAME}
@@ -165,7 +165,7 @@ objects:
       name: ${NAME}-admin${SUFFIX}
       labels:
         name: ${NAME}${SUFFIX}
-        app: ${APP_NAME}${SUFFIX}
+        app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
         app-group: ${APP_GROUP}
         role: ${ROLE}
         env: ${TAG_NAME}
@@ -189,7 +189,7 @@ objects:
       name: ${NAME}${SUFFIX}-tails
       labels:
         name: ${NAME}${SUFFIX}
-        app: ${APP_NAME}${SUFFIX}
+        app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
         app-group: ${APP_GROUP}
         role: ${ROLE}
         env: ${TAG_NAME}
@@ -207,7 +207,7 @@ objects:
       name: ${WALLET_CREDENTIAL_STORE_NAME}${SUFFIX}
       labels:
         name: ${NAME}${SUFFIX}
-        app: ${APP_NAME}${SUFFIX}
+        app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
         app-group: ${APP_GROUP}
         role: ${ROLE}
         env: ${TAG_NAME}
@@ -223,7 +223,7 @@ objects:
       name: ${NAME}${SUFFIX}
       labels:
         name: ${NAME}${SUFFIX}
-        app: ${APP_NAME}${SUFFIX}
+        app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
         app-group: ${APP_GROUP}
         role: ${ROLE}
         env: ${TAG_NAME}
@@ -237,7 +237,7 @@ objects:
       name: ${NAME}${SUFFIX}
       labels:
         name: ${NAME}${SUFFIX}
-        app: ${APP_NAME}${SUFFIX}
+        app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
         app-group: ${APP_GROUP}
         role: ${ROLE}
         env: ${TAG_NAME}
@@ -252,7 +252,7 @@ objects:
           name: ${NAME}${SUFFIX}
           labels:
             name: ${NAME}${SUFFIX}
-            app: ${APP_NAME}${SUFFIX}
+            app.kubernetes.io/part-of: ${APP_NAME}${SUFFIX}
             app-group: ${APP_GROUP}
             role: ${ROLE}
             env: ${TAG_NAME}
